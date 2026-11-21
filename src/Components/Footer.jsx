@@ -42,7 +42,7 @@ const Footer = () => {
                     <p>Terms And Services</p>
                 </div>
             </div>
-            <hr className=' my-10 text-gray-300'/>
+            <hr className=' my-10 text-gray-200'/>
             <div className='flex justify-between'>
                 <div>
                     <p>© 2026 Dev Stack. All rights reserved.</p>
