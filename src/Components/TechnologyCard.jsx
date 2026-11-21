@@ -1,8 +1,12 @@
 import React from 'react';
 import { Bounce, toast } from 'react-toastify';
 const TechnologyCard = ({user, stack, setStack }) => {
+    
         const handleAddToStack=(user)=>{
-            setStack([...stack, user])
+            const alreadyAdded = stack.some((item)=> item.id===user.id)
+            if(alreadyAdded===false){
+                
+                    setStack([...stack, user])
             toast.success(`${user.name} added`, {
 position: "top-center",
 autoClose: 5000,
@@ -13,7 +17,23 @@ draggable: true,
 progress: undefined,
 theme: "light",
 transition: Bounce,
+})
+                
+                
+            }
+            else {
+                toast.error("Already Added", {
+position: "top-center",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: false,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",
+transition: Bounce,
 });
+            };
         }
 
     return (
@@ -33,7 +53,9 @@ transition: Bounce,
                 <span>{user.rating}</span>
                 </p>
             </div>
-            <button onClick={()=>handleAddToStack(user)} className='container border px-10 py-3 bg-black text-white rounded-2xl'>Add to Stack</button>
+            <button onClick={()=>handleAddToStack(user)} className='container border px-10 py-3 bg-black text-white rounded-2xl'>{stack.some((item) => item.id === user.id)
+    ? "✓ Added to Stack"
+    : "Add to Stack"}</button>
         </div>
     );
 };

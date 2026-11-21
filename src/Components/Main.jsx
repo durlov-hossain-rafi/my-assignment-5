@@ -8,7 +8,6 @@ const Main = () => {
         const users =await res.json()
         console.log(users)
         setUsers(users)
-        // return users
     }
     useEffect(()=>{
         usersData()
@@ -31,8 +30,8 @@ const Main = () => {
                     ))}
                     </div>
                 </div>
-                <div className='col-span-3 bg-gray-300'>
-                    <SelectedStack stack={stack}/>
+                <div className='col-span-3 border border-gray-300 shadow-2xl rounded-2xl'>
+                    <SelectedStack stack={stack} setStack={setStack}/>
                 </div>
             </div>
             <hr className='mt-5 text-gray-300'/>
